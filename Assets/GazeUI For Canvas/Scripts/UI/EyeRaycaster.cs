@@ -6,6 +6,8 @@ using UnityEngine.VR;
 
 public class EyeRaycaster : MonoBehaviour
 {
+    public GameObject menu;
+
 	[SerializeField]
 	float loadingTime;
 	[SerializeField]
@@ -42,7 +44,8 @@ public class EyeRaycaster : MonoBehaviour
 	{
 		// Centre of the screen
 		PointerEventData pointer = new PointerEventData(EventSystem.current);
-		pointer.position = new Vector2(Screen.width / 2, Screen.height / 2);
+        // pointer.position = new Vector2(Screen.width / 2, Screen.height / 2);
+        pointer.position = new Vector2(VRSettings.eyeTextureWidth / 2, VRSettings.eyeTextureHeight / 2);
 		pointer.button = PointerEventData.InputButton.Left;
 
 		List<RaycastResult> raycastResults = new List<RaycastResult>();
@@ -65,6 +68,17 @@ public class EyeRaycaster : MonoBehaviour
 				if (Time.time >= endFocusTime && target != lastActivatedTarget)
 				{
 					lastActivatedTarget = target;
+
+                    Grab c = menu.GetComponent<Grab>();
+                    GameObject chicken = c.currchicken;
+
+                    if (target.name == "Fatten") {
+                        chicken.transform.localScale *= 1.5f;
+                    }
+
+                    if (target.name == "De-fatten") {
+                        chicken.transform.localScale *= 0.5f;
+                    }
 
 					if (target.GetComponent<ISubmitHandler>() != null)
 						target.GetComponent<ISubmitHandler>().OnSubmit(pointer);
@@ -96,6 +110,8 @@ public class EyeRaycaster : MonoBehaviour
 					target = raycastResults[0].gameObject;
 					endFocusTime = Time.time + loadingTime;
 				}
+
+                // Debug.Log(target.name + " activated");
 
 				progress = Mathf.Lerp(0, 1, (Time.time - endFocusTime) / loadingTime * 2);
 

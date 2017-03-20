@@ -96,6 +96,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
+    <Compile Include="Assets\GazeUI For Canvas\Scripts\UI\EyeRaycaster.cs" />
     <Compile Include="Assets\HerdSim\Scripts\Demo\SmoothCameraOrbit.cs" />
     <Compile Include="Assets\HerdSim\Scripts\HerdSimController.cs" />
     <Compile Include="Assets\HerdSim\Scripts\HerdSimCore.cs" />
@@ -161,8 +163,8 @@
     <Compile Include="Assets\Sardine\Scripts\SardineCameraScript.cs" />
     <Compile Include="Assets\Sardine\Scripts\SardineCharacter.cs" />
     <Compile Include="Assets\Sardine\Scripts\SardineUserController.cs" />
-    <Compile Include="Assets\Scripts\FindBucket.cs" />
-    <Compile Include="Assets\Scripts\FindChicken.cs" />
+    <Compile Include="Assets\Scripts\Bucket.cs" />
+    <Compile Include="Assets\Scripts\CreateLine.cs" />
     <Compile Include="Assets\Scripts\GazeSelect.cs" />
     <Compile Include="Assets\Scripts\Grab.cs" />
     <Compile Include="Assets\Scripts\LPointTouch.cs" />
@@ -170,6 +172,9 @@
     <Compile Include="Assets\Scripts\Travel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
+    <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
+    <None Include="Assets\GazeUI For Canvas\ReadMe.txt" />
     <None Include="Assets\HerdSim\HerdSim Readme.txt" />
     <None Include="Assets\HerdSim\Scripts\C%23\- IMPORTANT - Version Change Readme.txt" />
     <None Include="Assets\MedievalTownExteriors\Readme.txt" />

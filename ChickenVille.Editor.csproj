@@ -180,6 +180,9 @@
     <Compile Include="Assets\OvrAvatar\Editor\AvatarMaterialEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
+    <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
+    <None Include="Assets\GazeUI For Canvas\ReadMe.txt" />
     <None Include="Assets\HerdSim\HerdSim Readme.txt" />
     <None Include="Assets\HerdSim\Scripts\C%23\- IMPORTANT - Version Change Readme.txt" />
     <None Include="Assets\MedievalTownExteriors\Readme.txt" />

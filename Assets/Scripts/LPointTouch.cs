@@ -85,7 +85,7 @@ public class LPointTouch : MonoBehaviour
             {
                 pressTimer += Time.deltaTime;
                 enablePointingLine();
-                Debug.LogFormat("pointing");
+                // Debug.LogFormat("pointing");
             }
             else
             {
