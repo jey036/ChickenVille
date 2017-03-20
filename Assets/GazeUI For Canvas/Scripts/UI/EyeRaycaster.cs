@@ -61,7 +61,7 @@ public class EyeRaycaster : MonoBehaviour
                 Grab c = menu.GetComponent<Grab>();
                 GameObject chicken = c.currchicken;
 
-                Debug.Log(progress);
+                // Debug.Log(progress);
 
                 if (target.name == "Fatten")
                 {

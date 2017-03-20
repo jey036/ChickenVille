@@ -165,6 +165,7 @@
     <Compile Include="Assets\Sardine\Scripts\SardineUserController.cs" />
     <Compile Include="Assets\Scripts\Bucket.cs" />
     <Compile Include="Assets\Scripts\CreateLine.cs" />
+    <Compile Include="Assets\Scripts\Gameplay.cs" />
     <Compile Include="Assets\Scripts\GazeSelect.cs" />
     <Compile Include="Assets\Scripts\Grab.cs" />
     <Compile Include="Assets\Scripts\LPointTouch.cs" />

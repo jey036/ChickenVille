@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grab : MonoBehaviour {
     private GameObject grabbedObject;
@@ -11,6 +12,7 @@ public class Grab : MonoBehaviour {
     public OVRInput.Controller controller;    
     public float grabRadius;
     public LayerMask grabMask;
+    public Dropdown mode;
 
     void GrabObject()
     {
@@ -56,7 +58,12 @@ public class Grab : MonoBehaviour {
             sim._startPosition = transform.position + transform.forward * 3;
             Vector3 pos = transform.position + transform.forward * 3;
             sim._ground = new Vector3(pos.x,10.0f,pos.z);
-            // GameObject.Find(grabbedObject.name).GetComponent<HerdSimCore>().enabled = true;
+            if (mode.GetComponent<Gameplay>().sickness)
+            {
+                sim.Death();
+                GameObject.Find(grabbedObject.name).GetComponent<HerdSimCore>().enabled = true;
+                grabbedObject.GetComponent<AudioSource>().Stop();
+            }
             grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
             grabbedObject = null;
         }
