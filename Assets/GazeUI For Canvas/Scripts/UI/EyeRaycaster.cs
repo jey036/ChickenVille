@@ -36,7 +36,6 @@ public class EyeRaycaster : MonoBehaviour
 		centerRawImage = transform.FindChild("Center").GetComponent<RawImage>();
 
 		gameObject.SetActive(VRSettings.enabled || forceActive);
-
 		endFocusTime = Time.time + loadingTime;
 	}
 
@@ -58,7 +57,23 @@ public class EyeRaycaster : MonoBehaviour
 			{
 				progress = Mathf.Lerp(1, 0, (endFocusTime - Time.time) / loadingTime);
 
-				indicatorFillRT.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, curve.Evaluate(progress));
+
+                Grab c = menu.GetComponent<Grab>();
+                GameObject chicken = c.currchicken;
+
+                Debug.Log(progress);
+
+                if (target.name == "Fatten")
+                {
+                    chicken.transform.localScale *= 1 + progress * 0.01f;
+                }
+
+                if (target.name == "De-fatten")
+                {
+                    chicken.transform.localScale /= 1 + progress * 0.01f;
+                }
+
+                indicatorFillRT.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, curve.Evaluate(progress));
 				indicatorFillRawImage.color = Color.Lerp(Color.clear, activeColor, curve.Evaluate(progress));
 				centerRawImage.color = Color.Lerp(Color.black, Color.white, curve.Evaluate(progress));
 
@@ -68,17 +83,6 @@ public class EyeRaycaster : MonoBehaviour
 				if (Time.time >= endFocusTime && target != lastActivatedTarget)
 				{
 					lastActivatedTarget = target;
-
-                    Grab c = menu.GetComponent<Grab>();
-                    GameObject chicken = c.currchicken;
-
-                    if (target.name == "Fatten") {
-                        chicken.transform.localScale *= 1.5f;
-                    }
-
-                    if (target.name == "De-fatten") {
-                        chicken.transform.localScale *= 0.5f;
-                    }
 
 					if (target.GetComponent<ISubmitHandler>() != null)
 						target.GetComponent<ISubmitHandler>().OnSubmit(pointer);

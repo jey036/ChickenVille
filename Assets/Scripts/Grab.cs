@@ -27,7 +27,7 @@ public class Grab : MonoBehaviour {
                 if (hits[i].distance < hits[closestHit].distance)
                     closestHit = i;
             }
-            Debug.LogFormat("You are trying to grab something.");
+            // Debug.LogFormat("You are trying to grab something.");
             CreateLine grabbed = gameObject.GetComponent<CreateLine>();
             grabbed.grabbed = true;
             grabbedObject = hits[closestHit].transform.gameObject.transform.root.gameObject;
@@ -39,7 +39,7 @@ public class Grab : MonoBehaviour {
         }
         else
         {
-            Debug.LogFormat("nothing was close enough.");
+            // Debug.LogFormat("nothing was close enough.");
         }
     }
 
@@ -56,7 +56,7 @@ public class Grab : MonoBehaviour {
             sim._startPosition = transform.position + transform.forward * 3;
             Vector3 pos = transform.position + transform.forward * 3;
             sim._ground = new Vector3(pos.x,10.0f,pos.z);
-            GameObject.Find(grabbedObject.name).GetComponent<HerdSimCore>().enabled = true;
+            // GameObject.Find(grabbedObject.name).GetComponent<HerdSimCore>().enabled = true;
             grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
             grabbedObject = null;
         }

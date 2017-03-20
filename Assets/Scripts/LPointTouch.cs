@@ -11,7 +11,7 @@ public class LPointTouch : MonoBehaviour
     public GameObject controller;
     public Vector3 teleportPosition;
     public GameObject line; // line helps select objects
-    public GameObject menu;
+    // public GameObject menu;
     public GameObject centerEye;
     public float save;
     float pressTimer;
@@ -50,7 +50,7 @@ public class LPointTouch : MonoBehaviour
         teleportPosition = GameObject.Find("Player").transform.position;
         //menu = GameObject.Find("Canvas").GetComponent<Image>();
         line.SetActive(false);
-        menu.SetActive(false);
+        // menu.SetActive(false);
         pressTimer = 0.0f;
         buttonInit = false;
         menuIndex = 0;
@@ -95,7 +95,7 @@ public class LPointTouch : MonoBehaviour
 
             if (pressTimer > 2.0f)
             {
-                Debug.LogFormat("moving to " + rayHit.point.x + " " + rayHit.point.z);
+                // Debug.LogFormat("moving to " + rayHit.point.x + " " + rayHit.point.z);
                 teleportPosition = new Vector3(rayHit.point.x, 13.5f, rayHit.point.z);
                 pressTimer = 0.0f;
                 line.SetActive(false);
